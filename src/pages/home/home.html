@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+  <ion-item>
+    <ion-label>Item</ion-label>
+    <ion-input type="text" [(ngModel)]="newItem"></ion-input>
+  </ion-item>
+  <ion-col>
+<button ion-button color="primary" outline (click)="addItem()">Add Item</button>
+</ion-col>
+</ion-list>
+<ion-list>
+  <ion-item-sliding *ngFor="let item of shoppingItems |async">
+    <ion-item>
+      {{item.$value}}    
+    </ion-item>
+    <ion-item-options side="right">
+   
+    <button ion-button color="danger" icon-only (click)="removeItem(item.$key)">
+      <ion-icon name="trash"></ion-icon>
+    </button>
+     </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>
